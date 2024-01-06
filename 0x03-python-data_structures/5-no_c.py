@@ -1,13 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+no_c = __import__('5-no_c').no_c
 
-
-def no_c(my_string):
-    i = 0
-
-    while i < len(my_string):
-        if my_string[i] in 'cC':
-            my_string = my_string[:i] + my_string[i + 1:]
-
-        i += 1
-
-    return my_string
+print(no_c("Best School"))
+print(no_c("Chicago"))
+print(no_c("C is fun!"))
