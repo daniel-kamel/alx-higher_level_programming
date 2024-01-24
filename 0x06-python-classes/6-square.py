@@ -90,7 +90,7 @@ class Square:
         prints a square to stdout
         """
         if self.__size == 0:
-                print()
+            print()
         else:
             for j in range(self.__position[1]):
                 print()
