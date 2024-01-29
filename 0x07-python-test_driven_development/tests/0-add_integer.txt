@@ -1,4 +1,9 @@
+This is a test file for 0-add_integer module.
+================================================================
+First, we import the module
 >>> add_integer = __import__('0-add_integer').add_integer
+
+Then, we execute our test cases.
 >>> add_integer(1, 1)
 2
 >>> add_integer(-1, 1)
