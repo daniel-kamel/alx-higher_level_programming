@@ -4,7 +4,7 @@ This module contains the definition of a Rectangle class
 """
 
 
-class Rectangle():
+class Rectangle:
     """
     This class defines an empty Rectangle
 
