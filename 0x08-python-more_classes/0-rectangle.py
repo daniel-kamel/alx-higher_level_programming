@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-This module contains the definition of a Square class
+This module contains the definition of a Rectangle class
 """
 
 
-class Square():
+class Rectangle():
     """
-    This class defines an empty square
+    This class defines an empty Rectangle
     """
     pass
