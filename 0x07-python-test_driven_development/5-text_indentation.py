@@ -1,28 +1,31 @@
 #!/usr/bin/python3
 """
-This module contains a function that print a square
+This module contains a function that prints a text with
+2 new lines after each of these characters: ., ? and :
 """
 
 
-def print_square(size):
+def text_indentation(text):
     """
-    This function prints a square.
+    This function prints a text with 2 new lines
+    after each of these characters: ., ? and :.
 
     Args:
-        size (int): length of the squanre
+        text (str): text to be split and printed
 
     Raises:
-        TypeError: size must be an int
-        ValueError: size must be >= 0
+        TypeError: text must be a string
     """
-    if not isinstance(size, int):
-        raise TypeError('size must be an integer')
-    if size < 0:
-        raise ValueError('size must be >= 0')
+    if not isinstance(text, str):
+        raise TypeError('text must be a string')
 
-    print(('#' * size + '\n') * size, end='')
+    for delim in '.?:':
+        text = (delim + '\n\n').join(
+            [line.strip(' ') for line in text.split(delim)])
+
+    print(text, end='')
 
 
 if __name__ == '__main__':
     import doctest
-    doctest.testfile('tests/4-print_square.txt')
+    doctest.testfile('tests/5-text_indentation.txt')

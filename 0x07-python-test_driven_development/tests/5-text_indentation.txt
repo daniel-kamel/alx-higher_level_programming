@@ -1,21 +1,63 @@
-This is a test file for 3-say_my_name module.
+This is a test file for 5-text_indentation module.
 ================================================================
 First, we import the module
->>> print_square = __import__('4-print_square').print_square
+>>> text_indentation = __import__('5-text_indentation').text_indentation
 
 Then, we execute our test cases.
->>> print_square(3)
-###
-###
-###
->>> print_square('a')
-Traceback (most recent call last):
-TypeError: size must be an integer
->>> print_square(0)
+>>> text_indentation('fullstop. question mark? and colon:')
+fullstop.
+<BLANKLINE>
+question mark?
+<BLANKLINE>
+and colon:
 
->>> print_square(1.0)
+>>> text_indentation('Normal text without delimeters')
+Normal text without delimeters
+
+>>> text_indentation(1.0)
 Traceback (most recent call last):
-TypeError: size must be an integer
->>> print_square(-1.3)
-Traceback (most recent call last):
-TypeError: size must be an integer
+TypeError: text must be a string
+
+>>> text_indentation('   a lot of spaces.   to?   remove:')
+a lot of spaces.
+<BLANKLINE>
+to?
+<BLANKLINE>
+remove:
+
+>>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
+... Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
+... Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
+... rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
+... stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
+... cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
+... beatiorem! Iam ruinas videres""")
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<BLANKLINE>
+Quonam modo?
+<BLANKLINE>
+Utrum igitur tibi litteram videor an totas paginas commovere?
+<BLANKLINE>
+Non autem hoc:
+<BLANKLINE>
+igitur ne illud quidem.
+<BLANKLINE>
+Fortasse id optimum, sed ubi illud:
+<BLANKLINE>
+Plus semper voluptatis?
+<BLANKLINE>
+Teneo, inquit, finem illi videri nihil dolere.
+<BLANKLINE>
+Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+<BLANKLINE>
+Si id dicis, vicimus.
+<BLANKLINE>
+Inde sermone vario sex illa a Dipylo stadia confecimus.
+<BLANKLINE>
+Sin aliud quid voles, postea.
+<BLANKLINE>
+Quae animi affectio suum cuique tribuens atque hanc, quam dico.
+<BLANKLINE>
+Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
