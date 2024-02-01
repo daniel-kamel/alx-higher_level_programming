@@ -1,0 +1,75 @@
+This is a test file for 101-lazy_matrix_mul module.
+================================================================
+First, we import the module
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+Then, we execute our test cases.
+
+ma = List of lists of number / mb = List of lists of number:
+>>> lazy_matrix_mul([[2, 3, 4], [5, 6, 7]], [[1], [2], [3]])
+[[20], [38]]
+
+ma = String / mb = List of lists of number:
+>>> lazy_matrix_mul('string', [[1, 2], [3, 4]])
+Traceback (most recent call last):
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'multiply' did not contain a loop with signature matching types (dtype('<U6'), dtype('<U1')) -> None
+
+ma = List of lists of number / mb = string
+>>> lazy_matrix_mul([[1, 2], [3, 4]], 'string')
+Traceback (most recent call last):
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'multiply' did not contain a loop with signature matching types (dtype('<U1'), dtype('<U6')) -> None
+
+ma = List of integers / mb = List of lists of number
+>>> lazy_matrix_mul([1, 2, 3], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+ValueError: shapes (3,) and (2,2) not aligned: 3 (dim 0) != 2 (dim 0)
+
+ma = List of lists of number / mb = List of integers 
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [1, 2, 3])
+Traceback (most recent call last):
+ValueError: shapes (2,2) and (3,) not aligned: 2 (dim 1) != 3 (dim 0)
+
+ma = empty / mb = List of lists of number
+>>> lazy_matrix_mul([], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
+
+ma = List of lists of number / mb = Empty
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [])
+Traceback (most recent call last):
+ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
+
+ma = List of lists of not number / mb = List of lists of number
+>>> lazy_matrix_mul([['string'], [True]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+ValueError: shapes (2,1) and (2,2) not aligned: 1 (dim 1) != 2 (dim 0)
+
+ma = List of lists of number / mb = List of lists of not number
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [['string'], [True]])
+Traceback (most recent call last):
+ValueError: data type must provide an itemsize
+
+ma = List of lists of number various size / mb = List of lists of number
+>>> lazy_matrix_mul([[1, 2], [1]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+
+ma = List of lists of number / mb = List of lists of number various size
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [1]])
+Traceback (most recent call last):
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+
+ma = List of lists of number / mb = List of lists of number but not correct 
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2, 3], [5, 6, 7], [8, 9, 0]])
+Traceback (most recent call last):
+ValueError: shapes (2,2) and (3,3) not aligned: 2 (dim 1) != 3 (dim 0)
+
+missing one argument
+>>> lazy_matrix_mul([[1, 2], [3, 4]])
+Traceback (most recent call last):
+TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+missing two arguments
+>>> lazy_matrix_mul()
+Traceback (most recent call last):
+TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
