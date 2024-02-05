@@ -13,4 +13,3 @@ class MyList(list):
         prints a sorted copy of the MyList object
         """
         print(sorted(self))
-
