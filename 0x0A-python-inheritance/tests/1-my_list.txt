@@ -10,6 +10,12 @@ Create an instance
     >>> list1.append(3)
     >>> list1.append(4)
 
+Correct Class Type test:
+    >>> ml = MyList()
+    >>> type(ml) == MyList
+    True
+
+
 Check if MyList is a subclass of list
     >>> issubclass(MyList, list)
     True
