@@ -2,8 +2,6 @@
 '''
 9-student module doc
 '''
-class_to_json = __import__('8-class_to_json').class_to_json
-
 
 class Student:
     '''
@@ -21,4 +19,8 @@ class Student:
         '''
         returns object attributes as json-like dictionary
         '''
-        return class_to_json(self)
+        items = {}
+        for key, value in vars(self).items():
+            if key[:2] != '__' and key[-2:] != '__':
+                items[key] = value
+        return items
