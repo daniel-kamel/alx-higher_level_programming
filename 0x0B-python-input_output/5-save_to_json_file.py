@@ -9,7 +9,5 @@ def save_to_json_file(my_obj, filename):
     '''
     save_to_json_file function doc
     '''
-    json_obj = json.dumps(my_obj)
-
     with open(filename, 'w') as f:
-        f.write(json_obj)
+        json.dump(my_obj, f)
