@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-9-student module doc
+10-student module doc
 '''
 
 
@@ -20,12 +20,6 @@ class Student:
         '''
         returns object attributes as json-like dictionary
         '''
-        items = {}
-        for key, value in vars(self).items():
-            if key[:2] != '__' and key[-2:] != '__':
-                if attrs:
-                    if key in attrs:
-                        items[key] = value
-                else:
-                    items[key] = value
-        return items
+        if attrs is not None:
+            return {k: v for k, v in self.__dict__.items() if k in attrs}
+        return self.__dict__
