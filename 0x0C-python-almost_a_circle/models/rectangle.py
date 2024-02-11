@@ -162,3 +162,15 @@ class Rectangle(Base):
                     self.__x = args[i]
                 elif i == 4:
                     self.__y = args[i]
+
+    def to_dictionary(self):
+        '''
+        returns the dictionary representation of a Rectangle
+        '''
+        result = {}
+        result['id'] = self.id
+        result['width'] = self.__width
+        result['height'] = self.__height
+        result['x'] = self.__x
+        result['y'] = self.__y
+        return result
