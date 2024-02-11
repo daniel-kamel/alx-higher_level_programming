@@ -63,3 +63,12 @@ class Square(Rectangle):
                     self.x = args[i]
                 elif i == 3:
                     self.y = args[i]
+
+    def to_dictionary(self):
+        '''
+        returns the dictionary representation of a Square
+        '''
+        result = super().to_dictionary()
+        result.pop('height')
+        result['size'] = result.pop('width')
+        return result
