@@ -126,8 +126,10 @@ class Rectangle(Base):
         '''
         displays the rectangle
         '''
+        print('\n' * self.__y, end='')
         for _ in range(self.__height):
-            print('#' * self.__width, )
+            print(' ' * self.__x +
+                  '#' * self.__width, )
 
     def __str__(self) -> str:
         return '[Rectangle] ({}) {}/{} - {}/{}'.format(
