@@ -3,6 +3,7 @@
 Base module containing Base class
 '''
 import json
+from os import path
 
 
 class Base:
@@ -64,3 +65,17 @@ class Base:
             inst = Square(1)
         inst.update(**dictionary)
         return inst
+
+    @classmethod
+    def load_from_file(cls):
+        '''
+        returns a list of instances
+        '''
+        file = f'{cls.__name__}.json'
+        if not path.isfile(file):
+            return []
+
+        with open(file, 'r') as f:
+            inst_list = cls.from_json_string(f.read())
+
+        return [cls.create(**obj) for obj in inst_list]
