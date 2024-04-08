@@ -7,7 +7,7 @@ if (argv.length < 4) {
   console.log('0');
 }
 
-for (const i in argv) {
+for (let i = 3; i < argv.length; i++) {
   if (i > 2 && Number(argv[i]) > largest) {
     secondLargest = largest;
     largest = Number(argv[i]);
