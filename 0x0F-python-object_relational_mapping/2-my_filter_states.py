@@ -14,9 +14,9 @@ def main():
     cursor = db.cursor()
     cursor.execute("""
                    SELECT * FROM states
-                   WHERE name = %s
+                   WHERE name = {}
                    ORDER BY id
-                   """, (argv[4],))
+                   """.format(argv[4]))
     states = cursor.fetchall()
     for state in states:
         print(state)
