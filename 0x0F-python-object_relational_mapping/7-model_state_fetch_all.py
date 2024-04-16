@@ -7,7 +7,7 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 
-if __name__ == "__main__":
+def main():
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(argv[1], argv[2], argv[3]))
     Base.metadata.create_all(engine)
@@ -15,3 +15,7 @@ if __name__ == "__main__":
     session = Session()
     for object in session.query(State).order_by(State.id):
         print(object.id, object.name, sep=": ")
+
+
+if __name__ == "__main__":
+    main()
