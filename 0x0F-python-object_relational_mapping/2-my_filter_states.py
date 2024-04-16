@@ -14,7 +14,7 @@ def main():
     cursor = db.cursor()
     cursor.execute("""
                    SELECT * FROM states
-                   WHERE name = {}
+                   WHERE name LIKE BINARY {}
                    ORDER BY id
                    """.format(argv[4]))
     states = cursor.fetchall()
