@@ -13,10 +13,8 @@ def main():
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    new_state = State(name='Louisiana')
-    session.add(new_state)
-    new_object = session.query(State).filter_by(name='Louisiana').first()
-    print(new_object.id)
+    new_object = session.query(State).filter_by(id=2).first()
+    new_object.name = 'New Mexico'
     session.commit()
 
 
