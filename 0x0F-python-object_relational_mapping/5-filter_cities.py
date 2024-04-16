@@ -14,16 +14,16 @@ def main():
                          passwd=argv[2], db=argv[3])
     cursor = db.cursor()
     cursor.execute("""
-                   SELECT cities.id, cities.name
+                   SELECT cities.name
                    FROM cities
                    JOIN states
                    ON cities.state_id = states.id
                    WHERE states.name LIKE %s
                    ORDER BY cities.id
                    """, (argv[4],))
-    cities = cursor.fetchall()
-    for city in cities:
-        print(city)
+    rows = cursor.fetchall()
+    cities = list(row[0] for row in rows)
+    print(*cities, sep=", ")
     cursor.close()
     db.close()
 
