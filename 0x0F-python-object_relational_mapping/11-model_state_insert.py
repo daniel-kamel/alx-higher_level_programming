@@ -7,7 +7,7 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 
-if __name__ == "__main__":
+def main():
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(engine)
@@ -15,6 +15,10 @@ if __name__ == "__main__":
     session = Session()
     new_state = State(name='Louisiana')
     session.add(new_state)
-    new_instance = session.query(State).filter_by(name='Louisiana').first()
-    print(new_instance.id)
+    new_object = session.query(State).filter_by(name='Louisiana').first()
+    print(new_object.id)
     session.commit()
+
+
+if __name__ == "__main__":
+    main()
