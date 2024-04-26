@@ -6,4 +6,4 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-curl -sI "$1" | grep -i Content-Length | awk '{print $2}'
+curl -s "$1" | wc -c
