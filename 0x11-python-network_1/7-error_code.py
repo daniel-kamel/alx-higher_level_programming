@@ -12,3 +12,7 @@ def main():
         print('Error code: {}'.format(r.status_code))
     else:
         print(r.text)
+
+
+if __name__ == '__main__':
+    main()
