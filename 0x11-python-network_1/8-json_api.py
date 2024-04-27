@@ -10,7 +10,10 @@ from sys import argv
 def main():
     """Sends a POST request to the passed URL with the email as a parameter"""
     url = 'http://0.0.0.0:5000/search_user'
-    data = {'q': argv[1]}
+    if len(argv) > 1:
+        data = {'q': argv[1]}
+    else:
+        data = {'q': ''}
     r = requests.post(url, data=data)
     try:
         js = r.json()
