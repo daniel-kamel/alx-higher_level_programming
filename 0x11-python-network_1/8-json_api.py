@@ -9,8 +9,8 @@ from sys import argv
 
 def main():
     """Sends a POST request to the passed URL with the email as a parameter"""
-    url = argv[1]
-    data = {'q': argv[2]}
+    url = 'http://0.0.0.0:5000/search_user'
+    data = {'q': argv[1]}
     r = requests.post(url, data=data)
     try:
         js = r.json()
