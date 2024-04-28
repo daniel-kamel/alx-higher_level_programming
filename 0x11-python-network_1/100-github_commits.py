@@ -14,8 +14,9 @@ def main():
                      .format(owner, repo),
                      params={'per_page': 10})
     for commit in r.json()[:10]:
-        print(commit.get('sha'),
-              commit.get('commit').get('author').get('name'))
+        sha = commit.get('sha')
+        author = commit.get('commit').get('author').get('name')
+        print(f"{sha}: {author}")
 
 
 if __name__ == "__main__":
