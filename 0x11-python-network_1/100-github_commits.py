@@ -12,8 +12,7 @@ def main():
     owner = argv[2]
     r = requests.get('https://api.github.com/repos/{}/{}/commits'
                      .format(owner, repo),
-                     params={'per_page': 10},
-                     headers={'Accept': 'application/vnd.github.v3+json'})
+                     params={'per_page': 10})
     for commit in r.json()[:10]:
         print(commit.get('sha'),
               commit.get('commit').get('author').get('name'))
